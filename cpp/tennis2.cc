@@ -4,19 +4,19 @@ const std::string tennis_score(int p1Score, int p2Score) {
     std::string score = "";
     std::string P1res = "";
     std::string P2res = "";
-    if (p1Score == p2Score && p1Score < 4)
-    {
-        if (p1Score==0)
-            score = "Love";
-        if (p1Score==1)
-            score = "Fifteen";
-        if (p1Score==2)
-            score = "Thirty";
+    if (p1Score == p2Score) {
+      if (p1Score < 4) {
+        if (p1Score == 0)
+          score = "Love";
+        if (p1Score == 1)
+          score = "Fifteen";
+        if (p1Score == 2)
+          score = "Thirty";
         score += "-All";
-    }
-    if (p1Score==p2Score && p1Score>2)
+      }
+      if (p1Score > 2)
         score = "Deuce";
-    
+    }
     if (p1Score > 0 && p2Score==0)
     {
         if (p1Score==1)
