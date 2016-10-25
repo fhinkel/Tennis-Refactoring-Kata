@@ -1,58 +1,55 @@
 #include <string>
 
+const bool scoreIsTied(int s1, int s2) {
+    return s1 == s2;
+}
+
+const std::string namedScore(int score) {
+    switch(score)
+    {
+        case 0:
+            return "Love";
+        case 1:
+            return "Fifteen";
+        case 2:
+            return "Thirty";
+        case 3:
+            return"Forty";
+        default:
+            return "Error!";
+    }
+}
+
+const bool moreThanForty()
+
 const std::string tennis_score(int p1Score, int p2Score) {
-    std::string score = "";
-    int tempScore=0;
-    if (p1Score==p2Score)
+    if (scoreIsTied(p1Score, p2Score))
     {
         switch (p1Score)
         {
             case 0:
-                    score = "Love-All";
-                break;
+                return "Love-All";
             case 1:
-                    score = "Fifteen-All";
-                break;
+                return "Fifteen-All";
             case 2:
-                    score = "Thirty-All";
-                break;
+                return "Thirty-All";
             default:
-                    score = "Deuce";
-                break;
-            
+                return "Deuce";
+
         }
     }
     else if (p1Score>=4 || p2Score>=4)
     {
         int minusResult = p1Score-p2Score;
-        if (minusResult==1) score ="Advantage player1";
-        else if (minusResult ==-1) score ="Advantage player2";
-        else if (minusResult>=2) score = "Win for player1";
-        else score ="Win for player2";
+        if (minusResult==1) return "Advantage player1";
+        else if (minusResult ==-1) return "Advantage player2";
+        else if (minusResult>=2) return "Win for player1";
+        else return "Win for player2";
     }
     else
     {
-        for (int i=1; i<3; i++)
-        {
-            if (i==1) tempScore = p1Score;
-            else { score+="-"; tempScore = p2Score;}
-            switch(tempScore)
-            {
-                case 0:
-                    score+="Love";
-                    break;
-                case 1:
-                    score+="Fifteen";
-                    break;
-                case 2:
-                    score+="Thirty";
-                    break;
-                case 3:
-                    score+="Forty";
-                    break;
-            }
-        }
+        return namedScore(p1Score) + "-" + namedScore(p2Score);
     }
-    return score;
-    
 }
+
+
