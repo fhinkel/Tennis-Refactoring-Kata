@@ -5,7 +5,7 @@ const std::string tennis_score(int p1Score, int p2Score) {
     std::string P1res = "";
     std::string P2res = "";
     if (p1Score == p2Score) {
-      if (p1Score < 4) {
+      if (p1Score <= 2) {
         if (p1Score == 0)
           score = "Love";
         if (p1Score == 1)
@@ -14,8 +14,9 @@ const std::string tennis_score(int p1Score, int p2Score) {
           score = "Thirty";
         score += "-All";
       }
-      if (p1Score > 2)
+      else {
         score = "Deuce";
+      }
     }
     if (p1Score > 0 && p2Score==0)
     {
