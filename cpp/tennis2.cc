@@ -1,44 +1,36 @@
 #include <string>
 
+std::string regularScore(int score) {
+  if (score == 0)
+    return "Love";
+  if (score == 1)
+    return "Fifteen";
+  if (score == 2)
+    return "Thirty";
+  if (score==3)
+    return "Forty";
+  return "Error!";
+}
+
 const std::string tennis_score(int p1Score, int p2Score) {
     std::string score = "";
     std::string P1res = "";
     std::string P2res = "";
     if (p1Score == p2Score) {
       if (p1Score <= 2) {
-        if (p1Score == 0)
-          score = "Love";
-        if (p1Score == 1)
-          score = "Fifteen";
-        if (p1Score == 2)
-          score = "Thirty";
-        score += "-All";
+        return regularScore(p1Score) + "-All";
       }
-      else {
-        score = "Deuce";
-      }
+      return "Deuce";
     }
     if (p1Score > 0 && p2Score==0)
     {
-        if (p1Score==1)
-            P1res = "Fifteen";
-        if (p1Score==2)
-            P1res = "Thirty";
-        if (p1Score==3)
-            P1res = "Forty";
-        
+        P1res = regularScore(p1Score);
         P2res = "Love";
         score = P1res + "-" + P2res;
     }
     if (p2Score > 0 && p1Score==0)
     {
-        if (p2Score==1)
-            P2res = "Fifteen";
-        if (p2Score==2)
-            P2res = "Thirty";
-        if (p2Score==3)
-            P2res = "Forty";
-        
+        P2res = regularScore(p2Score);
         P1res = "Love";
         score = P1res + "-" + P2res;
     }
