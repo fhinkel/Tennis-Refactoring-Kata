@@ -22,7 +22,7 @@ const std::string tennis_score(int p1Score, int p2Score) {
       }
       return "Deuce";
     }
-    if (p1Score > 0 && p2Score==0)
+    if (p1Score > 0 && p2Score == 0)
     {
         P1res = regularScore(p1Score);
         P2res = "Love";
@@ -37,14 +37,8 @@ const std::string tennis_score(int p1Score, int p2Score) {
     
     if (p1Score>p2Score && p1Score < 4)
     {
-        if (p1Score==2)
-            P1res="Thirty";
-        if (p1Score==3)
-            P1res="Forty";
-        if (p2Score==1)
-            P2res="Fifteen";
-        if (p2Score==2)
-            P2res="Thirty";
+        P1res = regularScore(p1Score);
+        P2res = regularScore(p2Score);
         score = P1res + "-" + P2res;
     }
     if (p2Score>p1Score && p2Score < 4)
